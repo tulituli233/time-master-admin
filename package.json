@@ -76,7 +76,6 @@
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
-      "eslint --fix",
       "prettier --write"
     ],
     "*.{css,less,scss,html,md}": [

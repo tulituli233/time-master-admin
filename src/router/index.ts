@@ -112,7 +112,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     redirect: "/expenses/index",
     name: "Expenses",
     meta: {
-      title: "记账",
+      title: "记账管家",
       elIcon: "Grid"
     },
     children: [
@@ -121,17 +121,29 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/expenses/index.vue"),
         name: "ExpensesCategory",
         meta: {
-          title: "分类设置",
-          svgIcon: "unocss"
+          title: "记账管家",
+          elIcon: "Notebook"
         }
-      },
+      }
+    ]
+  },
+  {
+    path: "/water",
+    component: Layouts,
+    redirect: "/water/index",
+    name: "Water",
+    meta: {
+      title: "饮水提醒",
+      elIcon: "Grid"
+    },
+    children: [
       {
-        path: "record",
-        component: () => import("@/views/expenses/index.vue"),
-        name: "ExpensesRecord",
+        path: "index",
+        component: () => import("@/views/water/index.vue"),
+        name: "WaterType",
         meta: {
-          title: "记账",
-          svgIcon: "unocss"
+          title: "饮水提醒",
+          elIcon: "HotWater"
         }
       }
     ]
@@ -143,7 +155,8 @@ export const constantRoutes: RouteRecordRaw[] = [
     name: "Table",
     meta: {
       title: "表格",
-      elIcon: "Grid"
+      elIcon: "Grid",
+      hidden: true
     },
     children: [
       {
@@ -301,7 +314,8 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       title: "权限",
       svgIcon: "lock",
       roles: ["admin", "editor"], // 可以在根路由中设置角色
-      alwaysShow: true // 将始终显示根菜单
+      alwaysShow: true, // 将始终显示根菜单
+      hidden: true
     },
     children: [
       {
